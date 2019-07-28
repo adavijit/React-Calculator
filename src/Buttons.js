@@ -29,14 +29,29 @@ handleOperation=()=>{
     try {
         if( this.isInt( eval( this.state.display )) )
         {
+            if(( eval(this.state.display) || "" ) + "" =='')
+            {
             this.setState({
-                display: ( eval(this.state.display) || "" ) + ""
+                display: 0
             })
+            }
+            else{
+                this.setState({
+                    display: ( eval(this.state.display) || "" ) + ""
+                })
+            }
         }
         else{
+            if(( eval(this.state.display) || "" ) + "" ==''){
             this.setState({
-                display: ( eval(this.state.display).toFixed(2) || "" ) + ""
+                display: 0.00
             })
+            }
+            else{
+                this.setState({
+                    display: ( eval(this.state.display).toFixed(2) || "" ) + ""
+                })
+            }
         }
         
     } catch (e) {
